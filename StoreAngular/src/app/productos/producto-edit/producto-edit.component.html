@@ -1,1 +1,28 @@
-<p>producto-edit works!</p>
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <label>
+      Título:
+      <input type="text" formControlName="title">
+    </label>
+  
+    <label>
+      Descripción:
+      <input type="text" formControlName="description">
+    </label>
+  
+    <label>
+      Precio:
+      <input type="number" formControlName="price">
+    </label>
+  
+    <label>
+      Categoría:
+      <input type="text" formControlName="category">
+    </label>
+  
+    <label>
+      Imagen:
+      <input type="text" formControlName="image">
+    </label>
+  
+    <button type="submit">Guardar</button>
+  </form>

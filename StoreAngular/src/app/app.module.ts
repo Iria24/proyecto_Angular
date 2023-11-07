@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductoListComponent } from './productos/producto-list/producto-list.component';
-import { ProductsModule } from './productos/productos.module';
+import { ProductosModule } from './productos/productos.module';
 import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    // ProductoListComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
-    // ProductsModule,
-    // UserModule
+    ProductosModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,6 @@
-<div *ngFor="let product of products">
-    <h2>{{ product.title }}</h2>
-    <p>Description: {{ product.description }}</p>
-    <p>Price: {{ product.price }}</p>
-    <p>Category: {{ product.category }}</p>
-    <img [src]="product.image" alt="{{ product.title }}" width="100">
-    <!-- Agrega aquí cualquier otro detalle que desees mostrar -->
+<div *ngFor="let producto of productos">
+  <h2>{{ producto.name }}</h2>
+  <p>{{ producto.description }}</p>
+  <p>{{ producto.price }}</p>
+  <button (click)="handleButtonClick(producto)">Haz clic en mí</button>
 </div>

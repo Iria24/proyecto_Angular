@@ -6,9 +6,9 @@ import { IProduct } from './../i-product'; // Importa la interfaz de producto
 @Component({
   selector: 'app-producto-detail',
   templateUrl: './producto-detail.component.html',
-  styleUrls: ['./producto-detail.component.css']
+  styleUrls: ['./producto-detail.component.scss']
 })
-export class ProductDetailComponent implements OnInit {
+export class ProductoDetailComponent implements OnInit {
   product: IProduct | undefined;
 
   constructor(private route: ActivatedRoute, private productService: ProductService) {}
