@@ -1,2 +1,18 @@
-<!-- <p>login works!</p> -->
+<section>
+  <div class="container">
+    <button class="btnretroceso" routerLink="/">Atrás</button>
+    <form (ngSubmit)="login(username.value, password.value)">
+      <div>
+        <label for="username">Nombre de usuario:</label>
+        <input type="text" id="username" #username required />
+      </div>
+      <div>
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" #password required />
+      </div>
+      <button type="submit">Iniciar sesión</button>
 
+      <button routerLink="/registro">Registrate</button>
+    </form>
+  </div>
+</section>

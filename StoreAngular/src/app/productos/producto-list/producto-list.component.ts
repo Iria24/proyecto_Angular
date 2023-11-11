@@ -17,6 +17,7 @@ export class ProductoListComponent implements OnInit {
   ngOnInit(): void {  //aqui obtiene los datos de la api
     this.productService.findAll().subscribe(data => {
       this.productos = data;
+      console.log(data)
     });
   }
 

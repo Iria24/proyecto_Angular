@@ -6,14 +6,16 @@ import { ProductoEditComponent } from './productos/producto-edit/producto-edit.c
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
+import { HomeComponent } from './user/home/home.component';
 
 const routes: Routes = [
   { path: 'productos', component: ProductoListComponent },
   { path: 'productos/:id', component: ProductoDetailComponent },
   { path: 'productos/edit/:id', component: ProductoEditComponent },
-  { path: 'user-detail', component: UserDetailComponent },
+  { path: 'usuario', component: UserDetailComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'registro', component: RegisterComponent },
+  { path: '', component: HomeComponent }
 ];
 
 @NgModule({

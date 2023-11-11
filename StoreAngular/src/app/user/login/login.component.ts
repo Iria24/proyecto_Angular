@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,19 +8,19 @@ import { UserService } from '../user.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   login(username: string, password: string): void {
-    this.userService.login(username, password).subscribe(
-      (response: any) => {
-        const jwtToken = response.token;
-
-        if (jwtToken) {
-          localStorage.setItem('jwtToken', jwtToken);
+    this.userService.validateUser(username, password).subscribe(
+      isValid => {
+        if (isValid) {
+          this.router.navigate(['/productos']);
+        } else {
+          // Maneja el caso en que las credenciales no son válidas
         }
       },
-      (error) => {
-      //no muestra mensaje de error
+      error => {
+        // Maneja el error
       }
     );
   }
