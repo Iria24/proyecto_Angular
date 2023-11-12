@@ -5,20 +5,13 @@ import { ProductoEditComponent } from './producto-edit/producto-edit.component';
 import { ProductoListComponent } from './producto-list/producto-list.component';
 import { ProductoDetailComponent } from './producto-detail/producto-detail.component';
 
-
-
 @NgModule({
   declarations: [
     ProductoDetailComponent,
     ProductoEditComponent,
-    ProductoListComponent
+    ProductoListComponent,
   ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule
-  ],
-  exports: [
-    ProductoListComponent
-  ]
+  imports: [CommonModule, ReactiveFormsModule],
+  exports: [ProductoListComponent],
 })
-export class ProductosModule { }
+export class ProductosModule {}

@@ -16,11 +16,11 @@ export class LoginComponent {
         if (isValid) {
           this.router.navigate(['/productos']);
         } else {
-          // Maneja el caso en que las credenciales no son válidas
+          
         }
       },
       error => {
-        // Maneja el error
+        Error
       }
     );
   }

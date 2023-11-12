@@ -1,28 +1,43 @@
-<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
-    <label>
-      Título:
-      <input type="text" formControlName="title">
-    </label>
-  
-    <label>
-      Descripción:
-      <input type="text" formControlName="description">
-    </label>
-  
-    <label>
-      Precio:
-      <input type="number" formControlName="price">
-    </label>
-  
-    <label>
-      Categoría:
-      <input type="text" formControlName="category">
-    </label>
-  
-    <label>
-      Imagen:
-      <input type="text" formControlName="image">
-    </label>
-  
-    <button type="submit">Guardar</button>
-  </form>
+<section>
+  <div class="container">
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label>
+          Título
+          <input type="text" formControlName="title" />
+        </label>
+      </div>
+
+      <div>
+        <label>
+          Descripción
+          <input type="text" formControlName="description" />
+        </label>
+      </div>
+
+      <div>
+        <label>
+          Precio
+          <input type="number" formControlName="price" />
+        </label>
+      </div>
+
+      <div>
+        <label>
+          Categoría
+          <input type="text" formControlName="category" />
+        </label>
+      </div>
+
+      <div>
+        <label>
+          Imagen
+          <input type="text" formControlName="image" />
+        </label>
+      </div>
+
+      <button class="botones" type="submit">Guardar</button>
+      <button class="btnretroceso" routerLink="/productos"></button>
+    </form>
+  </div>
+</section>

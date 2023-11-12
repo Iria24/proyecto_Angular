@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from '../user.service';
+import { NgForm } from '@angular/forms';
 
 type User = {
   email: string;
@@ -23,12 +24,16 @@ type User = {
 export class RegisterComponent {
   constructor(private userService: UserService) {}
 
-  register(user: User): void {
+  onSubmit(registerForm: NgForm) {
+    this.onregister(registerForm.value);
+  }
+
+  onregister(user: User) {
     this.userService.registerUser(user).subscribe(
-      (data: any) => {
-        console.log('Registrado correctamente', data);
+      (response) => {
+        console.log('Registrado correctamente', response);
       },
-      (error: any) => {
+      (error) => {
         console.error('Error en el registro', error);
       }
     );

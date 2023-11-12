@@ -1,8 +1,13 @@
-<div *ngIf="product">
-    <h1>{{ product.title }}</h1>
-    <p>{{ product.description }}</p>
-    <p>Precio: {{ product.price }}</p>
-    <p>Categoría: {{ product.category }}</p>
-    <img [src]="product.image" alt="{{ product.title }}">
-    <a routerLink="/productos">Volver a la lista de productos</a>
-</div>
+<section>
+  <div *ngIf="product" class="producto">
+    <h1 class="titulo">{{ product.title }}</h1>
+    <p class="descripcion">{{ product.description }}</p>
+    <p class="precio">Precio: {{ product.price }}€</p>
+    <p class="categoria">Categoría: {{ product.category }}</p>
+    <button
+      class="btnretroceso"
+      routerLink="/productos/"
+      (click)="goToProducts()"
+    ></button>
+  </div>
+</section>

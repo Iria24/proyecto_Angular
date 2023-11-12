@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core'; // Asegúrate de que esta línea está al principio de tu archivo
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs';
 
 interface User {
   username: string;
@@ -13,27 +14,37 @@ interface User {
 })
 export class UserService {
   private apiUrl = 'https://fakestoreapi.com/users';
+  private loggedInUser = new BehaviorSubject<any>(null);
 
   constructor(private http: HttpClient) {}
+
+  getUsers(): Observable<any> {
+    return this.http.get(this.apiUrl);
+  }
 
   validateUser(username: string, password: string): Observable<boolean> {
     return this.http
       .get<User[]>(this.apiUrl)
       .pipe(
-        map((users) =>
-          users.some(
+        map((users) => {
+          const user = users.find(
             (user) => user.username === username && user.password === password
-          )
-        )
+          );
+          this.setLoggedInUser(user);
+          return Boolean(user);
+        })
       );
   }
 
-  // Añade los métodos que faltan aquí
-  registerUser(user: any): Observable<any> {
-    return this.http.post<any>(this.apiUrl, user);
+  registerUser(user: User): Observable<any> {
+    return this.http.post(this.apiUrl, user);
   }
 
-  getUserDetails(userId: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/${userId}`);
+  setLoggedInUser(user: any) {
+    this.loggedInUser.next(user);
+  }
+
+  getLoggedInUser() {
+    return this.loggedInUser.asObservable();
   }
 }

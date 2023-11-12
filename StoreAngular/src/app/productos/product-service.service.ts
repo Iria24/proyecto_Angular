@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { IProduct } from './i-product'; // Importa la interfaz de producto
+import { IProduct } from './i-product'; 
 
 @Injectable({
   providedIn: 'root',
@@ -35,6 +35,4 @@ export class ProductService {
       .put<IProduct>(`${this.API_BASE_URL}/${id}`, product)
       .pipe(tap((data) => console.log(data)));
   }
-
-  // Implementa otros métodos como update, delete, etc.
 }
